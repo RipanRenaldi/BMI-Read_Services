@@ -1,0 +1,80 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Dokumentasi Restfull API BMI Read Services",
+        "version": "1.0.0",
+        "description": "Dokumentasi Restfull API Untuk Service BMI Read",
+        "contact": {
+            "name": "Ripan Renaldi",
+            "email": "ripanrenaldi25042002@gmail.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8001/bmi",
+            "description": "BMI Read"
+        }
+    ],
+    "paths": {
+        "/bmi": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "format": "Bearer <token>",
+                                    "type": "string"
+                                },
+                                "examples": {
+                                    "Access Token": {
+                                        "value": {
+                                            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJ1c2VyLXJpcGFuIiwidXNlcm5hbWUiOiJyaXBhbnJlbmFsZGkyNSIsImVtYWlsIjoicmlwYW5yZW5hbGRpMjVAZ21haWwuY29tIiwiaWF0IjoxNjc2NDU1MDE0LCJleHAiOjE2NzY2NzEwMTR9.qliLwuSSpvixlkGzwYO6Merpf-247O1AzBGKHC5Dep0"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "summary": "Mendapatkan Semua BMI",
+                "responses": {
+                    "200": {
+                        "description": "Sukses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": "bmi-1675923818507-95",
+                                            "tinggi_badan": {
+                                                "type": "integer",
+                                                "format": "int32",
+                                                "example": 180
+                                            },
+                                            "berat_badan": {
+                                                "type": "integer",
+                                                "format": "int32",
+                                                "example": 60
+                                            },
+                                            "bmi": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 21.1232
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
